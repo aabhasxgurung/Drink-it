@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        serif: ["var(--font-dm-serif-display)"],
+        league: ["var(--font-league-spartan)"],
+      },
     },
   },
   plugins: [],
