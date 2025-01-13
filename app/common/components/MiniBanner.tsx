@@ -23,7 +23,10 @@ const logo = [
 const MiniBanner = () => {
   return (
     <HomeWrapper>
-      <div className="flex w-full justify-center items-center">
+      <h1 className="text-[#7B0323] text-5xl font-serif z-50 text-center ">
+        Explore Our Premium Brands
+      </h1>
+      <div className="flex w-full justify-center items-center mt-6">
         <div className="flex gap-7">
           {logo.map((logo) => (
             <div key={logo.id} className="px-4 text-white">
@@ -38,7 +41,6 @@ const MiniBanner = () => {
           ))}
         </div>
       </div>
-      <h1>Explore Our Premium Brands</h1>
     </HomeWrapper>
   );
 };

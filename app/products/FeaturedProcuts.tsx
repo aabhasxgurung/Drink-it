@@ -10,9 +10,9 @@ const FeaturedProcuts = () => {
         <h1 className="text-center font-bold text-[#7B0323] text-5xl font-serif">
           Discover Our Featured Products
         </h1>
-        <div className="flex justify-center items-center gap-20 py-6">
+        <div className="grid grid-cols-3 gap-20 py-6">
           {Bottles.map((bottle, i) => (
-            <div key={i} className="relative group">
+            <div key={i} className="relative group w-[280px]">
               <Image
                 src={bottle.img}
                 width={200}
