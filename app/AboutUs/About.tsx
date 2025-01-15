@@ -6,7 +6,7 @@ const About = () => {
   return (
     <HomeWrapper>
       <div className="relative">
-        <div className="flex flex-wrap items-center gap-10">
+        <div className="flex flex-wrap items-start gap-10">
           {/* Image Section */}
           <div className="flex-shrink-0 w-full lg:w-[400px] relative">
             <Image
@@ -28,7 +28,7 @@ const About = () => {
               </span>{" "}
               Nepal
             </div>
-            <div className="text-gray-800 leading-7 space-y-6">
+            <div className="text-gray-800 leading-7 space-y-6 font-league">
               <p>
                 Established in 2020, we are proud to be a trusted distributor of
                 premium wines and artisanal gin. Our mission is to bring the

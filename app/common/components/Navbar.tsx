@@ -16,12 +16,12 @@ const Navbar = () => {
             className="w-[200px] h-[60px]"
           />
         </Link>
-        <ul className="flex gap-6 items-center font-leagueSpartan">
+        <ul className="flex gap-6 items-center font-league">
           {NavBar.map((nav) => (
             <Link
               href={nav.url || ""}
               key={nav.id}
-              className="text-xl text-[#7B0323] font-leagueSpartan"
+              className="text-xl text-[#7B0323] font-league"
             >
               {nav.name}
             </Link>

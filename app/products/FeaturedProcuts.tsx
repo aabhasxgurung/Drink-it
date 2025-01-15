@@ -2,6 +2,7 @@ import React from "react";
 import { Bottles } from "./_constant/Product";
 import Image from "next/image";
 import HomeWrapper from "../common/components/HomeWrapper";
+import Link from "next/link";
 
 const FeaturedProcuts = () => {
   return (
@@ -10,21 +11,23 @@ const FeaturedProcuts = () => {
         <h1 className="text-center font-bold text-[#7B0323] text-5xl font-serif">
           Discover Our Featured Products
         </h1>
-        <div className="grid grid-cols-3 gap-20 py-6">
+        <div className="flex flex-wrap justify-center gap-20 pb-6 pt-10">
           {Bottles.map((bottle, i) => (
             <div key={i} className="relative group w-[280px]">
-              <Image
-                src={bottle.img}
-                width={200}
-                height={300}
-                alt=""
-                className="w-[280px] h-[400px] object-cover rounded-xl"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center rounded-xl">
-                <span className="text-[#7B0323] text-5xl font-serif z-50">
-                  {bottle.name}
-                </span>
-              </div>
+              <Link href={`/products/${bottle.slug}`}>
+                <Image
+                  src={bottle.img}
+                  width={200}
+                  height={300}
+                  alt=""
+                  className="w-[280px] h-[400px] object-cover rounded-xl"
+                />
+                {/* <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center rounded-xl">
+                  <span className="text-[#7B0323] text-5xl font-serif z-50">
+                    {bottle.name}
+                  </span>
+                </div> */}
+              </Link>
             </div>
           ))}
         </div>
