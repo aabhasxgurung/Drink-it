@@ -12,7 +12,7 @@ const FeaturedProcuts = () => {
           Discover Our Featured Products
         </h1>
         <div className="flex flex-wrap justify-center gap-20 pb-6 pt-10">
-          {Bottles.map((bottle, i) => (
+          {Bottles.slice(0, 3).map((bottle, i) => (
             <div key={i} className="relative group w-[280px]">
               <Link href={`/products/${bottle.slug}`}>
                 <Image
@@ -20,8 +20,9 @@ const FeaturedProcuts = () => {
                   width={200}
                   height={300}
                   alt=""
-                  className="w-[280px] h-[400px] object-cover rounded-xl"
+                  className="w-[280px] h-[400px] object-cover rounded-xl hover:scale-110 transition-all"
                 />
+                <div></div>
                 {/* <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center rounded-xl">
                   <span className="text-[#7B0323] text-5xl font-serif z-50">
                     {bottle.name}
