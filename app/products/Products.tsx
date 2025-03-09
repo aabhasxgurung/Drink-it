@@ -38,7 +38,7 @@ const Products = () => {
   };
 
   return (
-    <div>
+    <div className="pt-28 pb-20">
       <div>
         <h1 className="text-[#7B0323] text-5xl font-serif z-50 text-center">
           Discover Our Iconic Products
