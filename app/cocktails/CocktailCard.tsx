@@ -30,7 +30,7 @@ const CocktailCard = ({
 
   return (
     <div
-      className={`glass rounded-xl overflow-hidden transition-all duration-300 ${
+      className={`bg-white glass rounded-xl overflow-hidden transition-all duration-300 ${
         isExpanded ? "elegant-shadow-lg" : "elegant-shadow"
       }`}
     >

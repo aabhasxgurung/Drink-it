@@ -61,7 +61,7 @@ const FeaturedCoctails = () => {
             <span className="inline-block px-3 py-1 bg-wine-50 text-wine-900 rounded-full text-sm font-medium mb-4">
               Mixology
             </span>
-            <h2 className="text-3xl font-medium text-gray-900">
+            <h2 className="text-[#7B0323] text-5xl font-serif z-50 text-center">
               Signature Cocktail Recipes
             </h2>
           </div>
