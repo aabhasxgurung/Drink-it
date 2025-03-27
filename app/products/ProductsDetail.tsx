@@ -1,29 +1,58 @@
-import Image from "next/image";
+"use client";
 import React from "react";
-import HomeWrapper from "../common/components/HomeWrapper";
+import { useParams } from "next/navigation";
+import Image from "next/image";
+import { Bottles } from "./_constant/Product";
+import { div } from "framer-motion/client";
 
-const ProductsDetail = () => {
+const ProductDetail = () => {
+  const { slug } = useParams();
+  const product = Bottles.find((bottle) => bottle.slug === slug);
+
+  if (!product) {
+    return (
+      <div className="text-center text-2xl text-red-600">Product not found</div>
+    );
+  }
+
+  const { name, description, img, background } = product;
+
   return (
-    <HomeWrapper>
-      <div className="flex">
-        <div className="max-w-[500px]">
-          <h1 className="text-[#7B0323] text-5xl font-serif">Drink It</h1>
-          <p className="text-gray-800 leading-7 space-y-6 font-league">
-            SKYY Vodka is the number one premium vodka in the United States and
-            the fifth premium vodka in the world. Through the process of
-            quadruple distillation and triple filtration we obtain a vodka of
-            proven, exceptional quality and softness. Starting with the
-            distinctive SKYY cobalt blue Vodka bottle and award-winning
-            communication campaigns, SKYY is synonymous with quality, refinement
-            and style
+    <div>
+      {background ? (
+        <div
+          className="relative inset-0 flex items-center justify-center z-10 w-full h-screen bg-cover bg-center"
+          style={{ backgroundImage: `url(${background})` }}
+        >
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+      ) : (
+        <div className=""></div> // Correct empty fallback div
+      )}
+
+      <div className="relative max-w-[1200px] mx-auto flex justify-center items-center px-6 z-50 py-24">
+        <div className="flex justify-center items-center flex-col space-y-6">
+          <h2 className="text-6xl text-wine font-trajan text-center font-light max-w-4xl mx-auto">
+            {name}
+          </h2>
+          <Image src={img} width={550} height={550} alt={name} />
+          <p className="text-base font-trajan text-gray-800 leading-6 max-w-[1200px] mx-auto">
+            {description}
           </p>
         </div>
-        <div>
-          <Image src="/home/bottle1.jpg" width={400} height={700} alt="" />
-        </div>
+
+        {/* <div className="flex-1 flex justify-end">
+          <Image
+            src={img}
+            alt={name}
+            width={500}
+            height={500}
+            className="max-h-full object-contain"
+          />
+        </div> */}
       </div>
-    </HomeWrapper>
+    </div>
   );
 };
 
-export default ProductsDetail;
+export default ProductDetail;

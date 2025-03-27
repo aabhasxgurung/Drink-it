@@ -265,7 +265,7 @@ const Cocktails = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative pt-28 pb-20 bg-gray-50 overflow-hidden">
+      {/* <section className="relative pt-28 pb-20 bg-gray-50 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-wine-900/10 to-wine-900/5 z-0"></div>
         </div>
@@ -286,7 +286,10 @@ const Cocktails = () => {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <h1 className="text-[#7B0323] text-7xl font-serif z-50 text-center">
+        Cocktails
+      </h1>
 
       {/* Search and Filter Section */}
       <section className="py-10 bg-white">

@@ -8,6 +8,11 @@ import {
 import "./globals.css";
 import Navbar from "./common/components/Navbar";
 import Footer from "./common/components/Footer";
+import localFont from "next/font/local";
+
+const trajanPro = localFont({
+  src: "../public/fonts/trajanpro_bold.woff2",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${dmSerifDisplay.variable} ${leagueSpartan.variable} antialiased`}
+        className={`${trajanPro.className} ${geistSans.variable} ${geistMono.variable} ${dmSerifDisplay.variable} ${leagueSpartan.variable} antialiased`}
       >
         <Navbar />
         {children}

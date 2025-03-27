@@ -26,14 +26,13 @@ const Modal: React.FC<ModalProps & { background?: string }> = ({
       style={{
         background: isImageBg
           ? `${background} center/cover no-repeat` // Use image as background
-          : background || "radial-gradient(circle, white 30%, #333 70%)", // Use radial gradient as fallback
+          : background || "radial-gradient(circle, white 30%, #333 80%)", // Use radial gradient as fallback
       }}
     >
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
 
       <div className=" w-full h-[80vh] bg-transparent flex items-center px-6 z-50">
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-white text-4xl font-bold hover:scale-110 transition-transform"
@@ -41,7 +40,6 @@ const Modal: React.FC<ModalProps & { background?: string }> = ({
           &times;
         </button>
 
-        {/* Left Section - Text */}
         <div className="text-white flex-1 space-y-6">
           <h2 className="text-4xl font-bold">{title}</h2>
           <p className="text-lg">{description}</p>
@@ -50,10 +48,9 @@ const Modal: React.FC<ModalProps & { background?: string }> = ({
           </button>
         </div>
 
-        {/* Right Section - Image */}
-        <div className="flex-1 flex justify-end">
+        {/* <div className="flex-1 flex justify-end">
           <img src={image} alt={title} className="max-h-full object-contain" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

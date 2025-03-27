@@ -95,6 +95,7 @@ export default {
       },
       fontFamily: {
         serif: ["var(--font-dm-serif-display)"],
+        trajan: ["var(--font-trajan)", "serif"],
         league: ["var(--font-league-spartan)"],
         sans: [
           "-apple-system",
