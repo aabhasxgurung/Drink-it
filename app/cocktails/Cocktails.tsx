@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search, Filter, Wine } from "lucide-react";
 import CocktailCard from "./CocktailCard";
+import Link from "next/link";
 
 // Define the cocktail data type
 type Difficulty = "Easy" | "Medium" | "Advanced";
@@ -500,12 +501,12 @@ const Cocktails = () => {
               establishment.
             </p>
 
-            <a
+            <Link
               href="/products"
               className="inline-block px-6 py-3 bg-wine-900 text-white font-medium rounded-lg hover:bg-wine-800 transition-colors"
             >
               See Products
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

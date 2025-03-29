@@ -54,9 +54,9 @@ const Contact = () => {
               Get In Touch
             </h1>
             <p className="text-lg text-gray-600 mb-8">
-              We'd love to hear from you. Whether you have a question about our
-              products, partnership opportunities, or anything else, our team is
-              ready to answer all your inquiries.
+              We&apos;d love to hear from you. Whether you have a question about
+              our products, partnership opportunities, or anything else, our
+              team is ready to answer all your inquiries.
             </p>
           </motion.div>
         </div>

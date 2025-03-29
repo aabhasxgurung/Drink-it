@@ -6,9 +6,10 @@ import {
   League_Spartan,
 } from "next/font/google";
 import "./globals.css";
-import Navbar from "./common/components/Navbar";
-import Footer from "./common/components/Footer";
+
 import localFont from "next/font/local";
+import Navbar from "@/common/components/Navbar";
+import Footer from "@/common/components/Footer";
 
 const trajanPro = localFont({
   src: "../public/fonts/trajanpro_bold.woff2",

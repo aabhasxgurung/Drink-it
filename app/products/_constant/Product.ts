@@ -1,8 +1,58 @@
+export const FeaturedProducts = [
+  {
+    id: 1,
+    name: "Hapusa Himalayan Dry Gin",
+    img: "/sula/featuredHapusa.jpg",
+    slug: "hapusa-himalayan-dry-gin",
+    category: "gin",
+    description:
+      "Hapusa is a premium Himalayan dry gin, distilled with foraged botanicals from the region, creating a bold and aromatic spirit. Juniper, known as Hapusa in Sanskrit, is what gives their gin its name as well as its wild smell and scent.  This scarce juniper berry, which grows close to the Himalayan snow line, offers a lovely framework around which the other botanicals are thoughtfully placed. To create a true voyage in a glass, these botanicals are imported from all around the nation, combining its many flavours, cuisines, and civilisations.  Your taste sensations go through the monsoon forests of Tamil Nadu, the banks of the Hooghly River, the pine forests of the Himalayas, and the verdant spice plantations of Goa.",
+
+    background: "/backgrounds/Hapusa-Gin-lifestyle.jpeg",
+  },
+  {
+    id: 2,
+    name: "Greater Than London Dry Gin",
+    img: "/sula/greaterThanFeatured.jpg",
+    slug: "greater-than-london-dry-gin",
+    category: "gin",
+    description:
+      "Greater Than is India’s first craft gin, featuring juniper-forward flavors with hints of citrus and spice, perfect for refreshing cocktails.",
+  },
+  {
+    id: 3,
+    name: "Sula Chenin Blanc",
+    img: "/sula/cheninFeature.jpg",
+    slug: "sula-chenin-blanc",
+    category: "wines",
+    description:
+      "Chenin Blanc is a refreshing white wine known for its bright acidity and tropical fruit flavors. Perfect for warm summer days.",
+  },
+  {
+    id: 4,
+    name: "Sula Shiraz Cabernet",
+    img: "/sula/shirazFeature.jpg",
+    slug: "sula-shiraz-cabernet",
+    category: "wines",
+    description:
+      "Shiraz Cabernet is a bold red wine with deep berry flavors, balanced tannins, and a rich, full-bodied texture.",
+  },
+  {
+    id: 5,
+    name: "Sula Tropical Rose",
+    img: "/sula/tropicalFeature.jpg",
+    slug: "sula-tropical-rose",
+    category: "wines",
+    description: "A refreshing and fruity rosé wine, perfect for summer days.",
+  },
+];
+
 export const Bottles = [
   {
     id: 1,
     name: "Hapusa Himalayan Dry Gin",
     img: "/home/hapusa.png",
+    featuredImg: "/sula/featuredHapusa.jpg",
     slug: "hapusa-himalayan-dry-gin",
     category: "gin",
     description:
@@ -14,6 +64,7 @@ export const Bottles = [
     id: 2,
     name: "Greater Than London Dry Gin",
     img: "/home/greaterthan.png",
+    featuredImg: "/sula/featuredHapusa.jpg",
     slug: "greater-than-london-dry-gin",
     category: "gin",
     description:
@@ -23,6 +74,7 @@ export const Bottles = [
     id: 3,
     name: "Sula Chenin Blanc",
     img: "/sula/cheninBlanc.png",
+    featuredImg: "/sula/featuredHapusa.jpg",
     slug: "sula-chenin-blanc",
     category: "wines",
     description:
@@ -32,6 +84,7 @@ export const Bottles = [
     id: 4,
     name: "Sula Shiraz Cabernet",
     img: "/sula/shirazCabernet.png",
+    featuredImg: "/sula/featuredHapusa.jpg",
     slug: "sula-shiraz-cabernet",
     category: "wines",
     description:
@@ -41,6 +94,7 @@ export const Bottles = [
     id: 6,
     name: "Sula Tropical Rose",
     img: "/sula/Tropical.png",
+    featuredImg: "/sula/featuredHapusa.jpg",
     slug: "sula-tropical-rose",
     category: "wines",
     description: "A refreshing and fruity rosé wine, perfect for summer days.",

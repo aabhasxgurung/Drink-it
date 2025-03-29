@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import HomeWrapper from "../common/components/HomeWrapper";
+import HomeWrapper from "../../common/components/HomeWrapper";
 
 const About = () => {
   return (

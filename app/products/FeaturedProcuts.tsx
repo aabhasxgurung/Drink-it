@@ -1,60 +1,82 @@
-import React from "react";
-import { Bottles } from "./_constant/Product";
-import Image from "next/image";
-import HomeWrapper from "../common/components/HomeWrapper";
+"use client";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import React from "react";
+import { FeaturedProducts } from "./_constant/Product";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+import "swiper/css";
+import "swiper/css/pagination";
 const FeaturedProcuts = () => {
   return (
-    <HomeWrapper>
-      <div>
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <span className="inline-block px-3 py-1 bg-wine-50 text-wine-900 rounded-full text-sm font-medium mb-4">
-              Featured Collection
-            </span>
-            <h1 className="text-center font-bold text-[#7B0323] text-5xl font-serif">
-              Discover Our Featured Products
-            </h1>
+    <div className="px-20 py-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="lg:col-span-3">
+          <div className="max-w-md">
+            <h1 className="text-5xl mb-3 text-wine">Our Featured Products</h1>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit
+              laborum explicabo
+            </p>
+            <button className="mt-7">
+              <Link href="/products">Discover Our Products</Link>
+            </button>
           </div>
-
-          <Link
-            href="/products"
-            className="inline-flex items-center text-wine-900 font-medium mt-4 md:mt-0 hover:text-wine-700 transition-colors hover-link"
-          >
-            View all products
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
         </div>
-        <div className="flex flex-wrap justify-center gap-20 pb-6 pt-10">
-          {Bottles.slice(0, 3).map((bottle, i) => (
-            <div key={i} className="relative group w-[280px]">
-              <Link href={`/products/${bottle.slug}`}>
-                <Image
-                  src={bottle.img}
-                  width={200}
-                  height={300}
-                  alt=""
-                  className="w-[280px] h-[400px] object-cover rounded-xl hover:scale-110 transition-all"
-                />
-                <div></div>
-                {/* <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center rounded-xl">
-                  <span className="text-[#7B0323] text-5xl font-serif z-50">
-                    {bottle.name}
-                  </span>
-                </div> */}
-              </Link>
-            </div>
-          ))}
+        <div className="lg:col-span-9 relative">
+          <div className="w-full flex relative z-10 gap-6">
+            <Swiper
+              slidesPerView={3.5} // Shows 2 full slides and part of the 3rd
+              spaceBetween={20} // Adjusts spacing between slides
+              pagination={{ clickable: true }}
+              // modules={[Pagination]}
+              className="mySwiper"
+              breakpoints={{
+                320: { slidesPerView: 1, spaceBetween: 10 }, // Mobile
+                640: { slidesPerView: 1.5, spaceBetween: 15 }, // Tablets
+                1024: { slidesPerView: 1.5, spaceBetween: 20 }, // Large screens
+                1280: { slidesPerView: 2.7, spaceBetween: 20 },
+                1600: { slidesPerView: 3.5, spaceBetween: 20 },
+              }}
+            >
+              {FeaturedProducts.map((bottle, i) => (
+                <SwiperSlide
+                  key={bottle.slug || i}
+                  className="relative group mt-4 w-full flex h-[300px]"
+                >
+                  <div className="mt-10">
+                    <Image
+                      src={bottle.img}
+                      width={200}
+                      height={300}
+                      alt=""
+                      className="w-full h-[352px] object-cover object-top"
+                    />
+                    <div>
+                      <p className="text-sm pt-2 pb-3 font-sans capitalize font-normal">
+                        {bottle.category}
+                      </p>
+                      <h1 className="text-lg line-clamp-1 font-semibold">
+                        {bottle.name}
+                      </h1>
+                      <p className="text-base font-sans mt-2">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      </p>
+                      <Link href={`/products/${bottle.slug}`}>
+                        <button className="mt-2">
+                          <span>View More</span>
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div className="w-[96.5%] h-[600px] absolute bg-[#FBF4E7] left-12 top-0 z-0"></div>
         </div>
-        {/* <div className="flex justify-center items-center">
-          <button className="border-[#7B0323] border-2 py-2 px-4 rounded-lg text-[#7B0323] hover:bg-[#7B0323] hover:text-white transition-all delay-100 duration-300">
-            Discover More
-          </button>
-        </div> */}
       </div>
-    </HomeWrapper>
+    </div>
   );
 };
 

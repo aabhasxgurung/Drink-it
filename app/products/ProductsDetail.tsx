@@ -3,7 +3,6 @@ import React from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { Bottles } from "./_constant/Product";
-import { div } from "framer-motion/client";
 
 const ProductDetail = () => {
   const { slug } = useParams();

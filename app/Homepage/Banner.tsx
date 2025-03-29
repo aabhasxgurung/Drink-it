@@ -1,5 +1,5 @@
 "use client";
-import MiniBanner from "@/app/common/components/MiniBanner";
+import MiniBanner from "@/common/components/MiniBanner";
 import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,27 +12,11 @@ const Banner = () => {
   return (
     <>
       <div className="w-full h-screen relative justify-center">
-        {/* <video
-          className="w-full h-screen object-cover"
-          autoPlay
-          muted
-          loop
-          preload="none"
-        >
-          <source src="/Hapusa.mp4" type="video/mp4" />
-          <track
-            src="/path/to/captions.vtt"
-            kind="subtitles"
-            srcLang="en"
-            label="English"
-          />
-          Your browser does not support the video tag.
-        </video> */}
-        <Swiper navigation={true} className="mySwiper">
+        <Swiper className="mySwiper">
           <SwiperSlide>
             <div>
               <Image
-                src={"/home/bg2.jpeg"}
+                src={"/home/HapusaForest.jpg"}
                 width={1000}
                 height={1000}
                 alt="hello"
