@@ -46,12 +46,12 @@ const MiniBanner = () => {
           </div>
           </div> */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <h1 className="text-[#7B0323] text-5xl z-50 text-center mb-12">
+        <div className="md:max-w-7xl mx-auto px-6 md:px-10">
+          <h1 className="text-[#7B0323] text-3xl md:text-5xl z-50 text-center mb-12">
             Explore Our Premium Brands
           </h1>
 
-          <div className="flex gap-6 items-center justify-center">
+          <div className="grid grid-cols-2 md:flex gap-6 items-center justify-center">
             {logo.map((logo) => (
               <div key={logo.id}>
                 <Image

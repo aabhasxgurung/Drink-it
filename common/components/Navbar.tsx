@@ -47,9 +47,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-10 py-4 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-10 py-4  ${
         isHidden ? "-translate-y-full" : "translate-y-0"
-      } ${isScrolled ? "bg-white shadow-md" : "bg-transparent"} `}
+      } ${isScrolled ? "bg-white shadow-md" : "bg-white md:bg-transparent"} `}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
@@ -59,7 +59,7 @@ const Navbar = () => {
             width={200}
             height={60}
             alt="Company Logo"
-            className="w-[200px] h-[60px]"
+            className="w-[150px] md:w-[200px] md:h-[60px]"
           />
         </Link>
 

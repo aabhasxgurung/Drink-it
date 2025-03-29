@@ -11,16 +11,16 @@ import "swiper/css/navigation";
 const Banner = () => {
   return (
     <>
-      <div className="w-full h-screen relative justify-center">
+      <div className="w-full md:h-screen relative justify-center">
         <Swiper className="mySwiper">
           <SwiperSlide>
             <div>
               <Image
                 src={"/home/HapusaForest.jpg"}
-                width={1000}
+                width={1800}
                 height={1000}
                 alt="hello"
-                className="w-full h-screen object-cover"
+                className="w-full h-[500px] md:h-screen object-cover"
               />
             </div>
           </SwiperSlide>

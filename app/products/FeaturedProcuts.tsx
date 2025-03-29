@@ -9,11 +9,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 const FeaturedProcuts = () => {
   return (
-    <div className="px-20 py-10">
+    <div className="px-4 md:px-20 py-10 overflow-x-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-3">
           <div className="max-w-md">
-            <h1 className="text-5xl mb-3 text-wine">Our Featured Products</h1>
+            <h1 className="text-3xl md:text-7xl mb-3 text-wine">
+              Our Featured Products
+            </h1>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit
               laborum explicabo
