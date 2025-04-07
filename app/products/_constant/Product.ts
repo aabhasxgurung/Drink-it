@@ -1,4 +1,4 @@
-export const FeaturedProducts = [
+export const FeaturedProduct = [
   {
     id: 1,
     name: "Hapusa Himalayan Dry Gin",

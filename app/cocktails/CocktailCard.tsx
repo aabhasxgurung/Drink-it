@@ -1,5 +1,8 @@
 "use client";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Clock, Droplet, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
 
 interface CocktailCardProps {
   id: string;
@@ -20,79 +23,149 @@ const CocktailCard = ({
   difficulty,
 }: CocktailCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Difficulty color mapping
-  const difficultyColor = {
-    Easy: "bg-green-50 text-green-700",
-    Medium: "bg-amber-50 text-amber-700",
-    Advanced: "bg-red-50 text-red-700",
+  const difficultyConfig = {
+    Easy: {
+      color: "bg-green-50 text-green-700",
+      icon: <Droplet className="w-4 h-4 mr-1" />,
+    },
+    Medium: {
+      color: "bg-amber-50 text-amber-700",
+      icon: <Droplet className="w-4 h-4 mr-1" />,
+    },
+    Advanced: {
+      color: "bg-red-50 text-red-700",
+      icon: <Droplet className="w-4 h-4 mr-1" />,
+    },
   };
 
   return (
-    <div
-      className={`bg-white glass rounded-xl overflow-hidden transition-all duration-300 ${
-        isExpanded ? "elegant-shadow-lg" : "elegant-shadow"
-      }`}
+    <motion.div
+      className="bg-white rounded-xl overflow-hidden"
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      whileHover={{ y: -5 }}
+      style={{
+        boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+      }}
     >
-      {/* Image */}
+      {/* Image Container */}
       <div className="h-64 overflow-hidden relative">
-        <img
-          src={imageUrl}
-          alt={name}
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
-        {/* Difficulty tag */}
+        <motion.div
+          animate={{
+            scale: isHovered ? 1.05 : 1,
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <Image
+            src={imageUrl}
+            alt={name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </motion.div>
+
+        {/* Difficulty Badge */}
         <div className="absolute top-4 right-4">
-          <span
-            className={`inline-flex px-3 py-1 rounded-full text-xs font-medium ${difficultyColor[difficulty]}`}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={`flex items-center px-3 py-1 rounded-full text-xs font-medium ${difficultyConfig[difficulty].color}`}
           >
+            {difficultyConfig[difficulty].icon}
             {difficulty}
-          </span>
+          </motion.div>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-xl font-medium text-gray-900 mb-2">{name}</h3>
-        <p className="text-gray-600 mb-4 text-sm">{description}</p>
-
-        {/* Toggle button */}
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="text-wine-900 text-sm font-medium hover:text-wine-700 transition-colors focus:outline-none mb-2"
+        <motion.h3
+          className="text-xl font-medium text-gray-900 mb-2"
+          animate={{ color: isHovered ? "#7B0323" : "#111827" }}
         >
-          {isExpanded ? "Show less" : "Show recipe"}
-        </button>
+          {name}
+        </motion.h3>
+        <p className="text-gray-600 mb-4 text-sm line-clamp-2 font-sans">
+          {description}
+        </p>
 
-        {/* Expandable content */}
-        {isExpanded && (
-          <div className="mt-4 animate-fade-in">
-            <div className="mb-4">
-              <h4 className="text-sm font-medium text-gray-900 mb-2">
-                Ingredients:
-              </h4>
-              <ul className="text-sm text-gray-600 space-y-1 pl-5 list-disc">
-                {ingredients.map((ingredient, index) => (
-                  <li key={index}>{ingredient}</li>
-                ))}
-              </ul>
-            </div>
+        {/* Toggle Button */}
+        <motion.button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="flex items-center text-[#7B0323] text-sm font-medium hover:text-[#9B0C3C] transition-colors focus:outline-none"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          {isExpanded ? (
+            <>
+              Show less <ChevronUp className="ml-1 w-4 h-4" />
+            </>
+          ) : (
+            <>
+              Show recipe <ChevronDown className="ml-1 w-4 h-4" />
+            </>
+          )}
+        </motion.button>
 
-            <div>
-              <h4 className="text-sm font-medium text-gray-900 mb-2">
-                Instructions:
-              </h4>
-              <ol className="text-sm text-gray-600 space-y-2 pl-5 list-decimal">
-                {instructions.map((step, index) => (
-                  <li key={index}>{step}</li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        )}
+        {/* Expandable Content */}
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <div className="mt-4 space-y-4">
+                {/* Ingredients */}
+                <div>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2 flex items-center">
+                    <Droplet className="w-4 h-4 mr-2 text-[#7B0323]" />
+                    Ingredients:
+                  </h4>
+                  <ul className="text-sm text-gray-600 space-y-1 pl-6 list-disc marker:text-[#7B0323] font-sans">
+                    {ingredients.map((ingredient, index) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        {ingredient}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Instructions */}
+                <div>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2 flex items-center">
+                    <Clock className="w-4 h-4 mr-2 text-[#7B0323]" />
+                    Instructions:
+                  </h4>
+                  <ol className="text-sm text-gray-600 space-y-2 pl-6 list-decimal font-sans">
+                    {instructions.map((step, index) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 + 0.2 }}
+                      >
+                        {step}
+                      </motion.li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

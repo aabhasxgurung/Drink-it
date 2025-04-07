@@ -1,23 +1,33 @@
 import { Wine, Facebook, Instagram, Twitter, Mail, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-100">
+    <footer className="bg-[#F5EBDA] border-t border-gray-100 relative overflow-hidden">
+      <div className="absolute w-screen h-full flex justify-end items-end">
+        <Image
+          src="/home/footerbg.png"
+          width={1200}
+          height={600}
+          alt=""
+          className="w-full"
+        />
+      </div>
       <div className="max-w-7xl mx-auto px-6 md:px-10 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Logo and Description */}
           <div className="md:col-span-2 space-y-4">
-            <Link
-              href="/"
-              className="flex items-center space-x-2 text-wine-900"
-            >
-              <Wine className="h-7 w-7" />
-              <span className="text-xl font-medium tracking-tight">
-                Drink It
-              </span>
+            <Link href={"/"}>
+              <Image
+                src="/home/logo.png"
+                width={200}
+                height={60}
+                alt="Company Logo"
+                className="w-[150px] md:w-[200px] md:h-[60px]"
+              />
             </Link>
             <p className="text-gray-600 max-w-md mt-4">
               Premium liquor distributor offering carefully curated selections

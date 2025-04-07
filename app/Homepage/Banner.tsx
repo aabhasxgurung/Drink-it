@@ -8,22 +8,39 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
+const carouselImages = [
+  {
+    id: 1,
+    src: "/home/carousel1.jpg",
+  },
+  {
+    id: 2,
+    src: "/home/carousel2.jpg",
+  },
+  {
+    id: 3,
+    src: "/home/carousel3.jpg",
+  },
+];
+
 const Banner = () => {
   return (
     <>
       <div className="w-full md:h-screen relative justify-center">
         <Swiper className="mySwiper">
-          <SwiperSlide>
-            <div>
-              <Image
-                src={"/home/HapusaForest.jpg"}
-                width={1800}
-                height={1000}
-                alt="hello"
-                className="w-full h-[500px] md:h-screen object-cover"
-              />
-            </div>
-          </SwiperSlide>
+          {carouselImages.map((item, i) => (
+            <SwiperSlide key={i}>
+              <div>
+                <Image
+                  src={item.src}
+                  width={1800}
+                  height={1000}
+                  alt="hello"
+                  className="w-full h-[500px] md:h-screen object-cover"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
         {/* Ensure MiniBanner has a specific position or z-index */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
